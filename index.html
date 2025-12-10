@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Moonlite Corp</title>
+  <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- LOADER -->
+  <div id="loader">
+    <img src="images/loader.png" alt="Moonlite loader" />
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <img src="images/moonlite_logo.png" alt="Moonlite logo" class="nav-logo" />
+        <span class="brand-text">Moonlite Corp</span>
+      </div>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#team">Team</a>
+        <a href="#contact" class="btn-outline">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="hero">
+    <div class="hero-overlay"></div>
+    <img src="images/blobs.png" class="hero-pattern" alt="">
+    <div class="hero-inner">
+      <h1 class="reveal">We design digital products that accelerate growth.</h1>
+      <p class="reveal delay-1">Moonlite Corp — strategy, design & engineering for modern businesses.</p>
+      <div class="hero-ctas reveal delay-2">
+        <a href="#contact" class="btn-primary">Get a Quote</a>
+        <a href="#work" class="btn-ghost">View Work</a>
+      </div>
+    </div>
+    <img src="images/hero.jpg" alt="Hero background" class="hero-bg" />
+  </header>
+
+  <!-- SERVICES -->
+  <section id="services" class="section">
+    <h2 class="section-title">Our Services</h2>
+    <p class="subtitle">Design and engineering crafted for conversion and performance.</p>
+
+    <div class="services-grid">
+      <article class="service-card">
+        <img src="images/product.png" alt="Service 1" />
+        <h3>Product Design</h3>
+        <p>UX research, prototypes, and pixel-perfect UI design.</p>
+      </article>
+
+      <article class="service-card">
+        <img src="images/web_development.png" alt="Service 2" />
+        <h3>Web Development</h3>
+        <p>Responsive, fast websites built with modern best practices.</p>
+      </article>
+
+      <article class="service-card">
+        <img src="images/brand.png" alt="Service 3" />
+        <h3>Brand & Strategy</h3>
+        <p>Brand identity, messaging and creative direction that sells.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- WORK / CASES -->
+  <section id="work" class="section alt">
+    <h2 class="section-title">Selected Work</h2>
+    <div class="work-grid">
+      <figure class="work-item">
+        <img src="images/corporate_site.jpg" alt="Project 1" />
+        <figcaption>Corporate Site • Moonlight Realty</figcaption>
+      </figure>
+      <figure class="work-item">
+        <img src="images/artisan.png" alt="Project 2" />
+        <figcaption>E-Commerce • Artisan Store</figcaption>
+      </figure>
+      <figure class="work-item">
+        <img src="images/atlas.png" alt="Project 3" />
+        <figcaption>App Landing • Atlas App</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section id="team" class="section">
+    <h2 class="section-title">Our Team</h2>
+    <div class="team-grid">
+      <div class="team-card">
+        <img src="images/creative_director.jpeg" alt="Team 1" />
+        <h4>Amara — Creative Director</h4>
+      </div>
+      <div class="team-card">
+        <img src="images/daniel.jpeg" alt="Team 2" />
+        <h4>Daniel — Lead Engineer</h4>
+      </div>
+      <div class="team-card">
+        <img src="images/brand_strategist.jpeg" alt="Team 3" />
+        <h4>Rita — Brand Strategist</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section alt">
+    <h2 class="section-title">Let’s build something</h2>
+    <p class="subtitle">Tell us a bit about your project and timeline.</p>
+
+    <div class="contact-grid">
+      <form class="contact-form" action="#" method="post" onsubmit="return false;">
+        <input type="text" name="name" placeholder="Your name" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <input type="text" name="company" placeholder="Company (optional)" />
+        <textarea name="message" rows="5" placeholder="Brief description"></textarea>
+        <button class="btn-primary" type="submit">Send Message</button>
+      </form>
+
+      <div class="contact-info">
+        <img src="images/moonlite_logo.png" class="footer-logo" alt="Moonlite logo" />
+        <p>Email: hello@moonlitecorp.com</p>
+        <p>WhatsApp: +234 9017571403</p>
+        <p>Location: Abuja, Nigeria (remote worldwide)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <img src="images/moonlite_logo.png" class="footer-logo" alt="Moonlite logo" />
+      <p>© 2025 Moonlite Corp • All rights reserved</p>
+    </div>
+  </footer>
+
+  <script>
+    // loader removal + reveal stagger
+    window.addEventListener('load', () => {
+      const loader = document.getElementById('loader');
+      loader.style.opacity = '0';
+      setTimeout(() => loader.style.display = 'none', 600);
+
+      // simple reveal
+      document.querySelectorAll('.reveal, .service-card, .work-item, .team-card').forEach((el, i) => {
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        el.style.transitionDelay = (i * 0.08) + 's';
+        el.style.opacity = 1;
+        el.style.transform = 'translateY(0)';
+      });
+    });
+
+    // small touch: parallax effect for hero background (optional)
+    document.addEventListener('scroll', () => {
+      const hero = document.getElementById('hero');
+      if (!hero) return;
+      const y = window.scrollY;
+      hero.style.backgroundPosition = `center ${10 - y * 0.05}%`;
+    });
+  </script>
+</body>
+</html>
